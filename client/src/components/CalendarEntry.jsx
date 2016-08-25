@@ -48,7 +48,8 @@ class CalendarEntry extends React.Component {
 
 
   render() {
-    let displayButton = <span onClick={this.deleteEvent.bind(this)}className='glyphicon glyphicon-remove-circle' id='delete'></span>;
+    let displayButton = <span onClick={this.deleteEvent.bind(this)} className='glyphicon glyphicon-remove-circle' id='delete'></span>;
+
     return (
         <div className='calendar-entry'>
           <div className='event-start' onClick={this.showDelete.bind(this)}>
@@ -61,7 +62,6 @@ class CalendarEntry extends React.Component {
         </div>
     );
   }
-
 }
 
 export default CalendarEntry;
