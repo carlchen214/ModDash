@@ -21,6 +21,7 @@ const getGeolocation = () => {
     .then((res) => res.json())
     .then((data) => {
       // If current geolocation doesn't match geolocation in DB, then update DB
+      console.log('gelocation', data.geolocation);
       if (data.geolocation !== geolocation) {
         updateGeolocation(geolocation);
       } else {
@@ -73,4 +74,4 @@ getGeolocation();
 // Checks for user's geolocation every 10 minutes
 setInterval(() => {
   getGeolocation();
-}, 600000);
+}, 10000);
