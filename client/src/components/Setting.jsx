@@ -14,7 +14,7 @@ class Setting extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.onPhoneNumberChange = this.onPhoneNumberChange.bind(this);
   }
-  
+
   onPhoneNumberChange(e) {
     this.setState({ phoneNumber: e.target.value });
   }
@@ -27,7 +27,7 @@ class Setting extends React.Component {
     var token = localStorage.getItem('token');
     var settings = { phoneNumber: this.state.phoneNumber };
 
-    fetch('http://localhost:9000/api/users/updatePhoneNumber', {
+    fetch('http://velocitydash.com/api/users/updatePhoneNumber', {
       method: 'POST',
       body: JSON.stringify(settings),
       mode: 'cors-with-forced-preflight',
@@ -52,7 +52,7 @@ class Setting extends React.Component {
       <div>
         <Modal className="ModalForm" show={this.props.settingsIsOpen} onHide={this.props.toggleSettings}>
           <Modal.Header closeButton>
-            <Modal.Title> 
+            <Modal.Title>
               <div className="modal-title">Settings</div>
             </Modal.Title>
           </Modal.Header>

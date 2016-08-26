@@ -21,13 +21,13 @@ class Setting extends React.Component {
   updateSelectedTransitMode(value) {
     this.setState({ selectedTransitMode: value });
   }
-  
+
   handleSubmit() {
     // e.preventDefault();
     var token = localStorage.getItem('token');
     var settings = { transitMode: this.state.selectedTransitMode };
 
-    fetch('http://localhost:9000/api/users/updateTransit', {
+    fetch('http://velocitydash.com/api/users/updateTransit', {
       method: 'POST',
       body: JSON.stringify(settings),
       mode: 'cors-with-forced-preflight',
@@ -50,7 +50,7 @@ class Setting extends React.Component {
       <div>
         <Modal className="ModalForm" show={this.props.transitModeIsOpen} onHide={this.props.toggleTransitMode}>
           <Modal.Header closeButton>
-            <Modal.Title> 
+            <Modal.Title>
               <div className="modal-title">Transportation Mode</div>
             </Modal.Title>
           </Modal.Header>

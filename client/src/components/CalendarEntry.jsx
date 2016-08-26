@@ -1,11 +1,5 @@
 import React from 'react';
 import { Glyphicon } from 'react-bootstrap';
-//
-// const popoverRight = (
-//   <Popover id="popover-positioned-right" title="Popover right">
-//     <strong>Holy guacamole!</strong> Check this info.
-//   </Popover>
-// );
 
 class CalendarEntry extends React.Component {
   constructor(props) {
@@ -33,8 +27,7 @@ class CalendarEntry extends React.Component {
     var token = localStorage.getItem('token');
     var deleteCalId = this.state.gcalId;
     var googleCalId = {eventId: deleteCalId};
-
-    fetch('http://localhost:9000/api/calendar/deleteEvent', {
+    fetch('http://velocitydash.com/api/calendar/deleteEvent', {
       method: 'DELETE',
       body: JSON.stringify(googleCalId),
       mode: 'cors-with-forced-preflight',
@@ -55,7 +48,8 @@ class CalendarEntry extends React.Component {
 
 
   render() {
-    let displayButton = <span onClick={this.deleteEvent.bind(this)}className='glyphicon glyphicon-remove-circle' id='delete'></span>;
+    let displayButton = <span onClick={this.deleteEvent.bind(this)} className='glyphicon glyphicon-remove-circle' id='delete'></span>;
+
     return (
         <div className='calendar-entry'>
           <div className='event-start' onClick={this.showDelete.bind(this)}>

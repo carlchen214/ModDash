@@ -22,6 +22,7 @@ const addEventToGoogleCal = (userId, eventDetails) => {
   });
 };
 
+
 const getEventsFromGoogleCal = (id) => {
   return googleAuth.getUserTokens(id)
   .then(oauth2Client => {

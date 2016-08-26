@@ -88,7 +88,7 @@ class App extends React.Component {
     var token = localStorage.getItem('token');
 
     // Post event to Google Calendar API
-    fetch('http://localhost:9000/api/calendar/getDayEvents', {
+    fetch('http://velocitydash.com/api/calendar/getDayEvents', {
       method: 'GET',
       mode: 'cors-with-forced-preflight',
       headers: {
@@ -120,7 +120,7 @@ class App extends React.Component {
   displayTransitMode() {
     var token = localStorage.getItem('token');
 
-    fetch('http://localhost:9000/api/users/getTransit', {
+    fetch('http://velocitydash.com/api/users/getTransit', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -158,30 +158,6 @@ class App extends React.Component {
     this.setState({ events: sortedEvents });
   }
 
-  // deleteAndUpdateEvent(event) {
-  //   var token = localStorage.getItem('token');
-  //   console.log('app event id', event);
-  //   var googleCalId = {event: event}
-  //   fetch('http://localhost:9000/api/calendar/deleteEvent', {
-  //     method: 'DELETE',
-  //     body: JSON.stringify(googleCalId),
-  //     mode: 'cors-with-forced-preflight',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       'authorization': token
-  //     }
-  //   })
-  //   .then((res) => {
-  //     return res.json();
-  //   })
-  //   .then((data) => {
-  //     console.log('data'. data);
-  //     // use data to update state after success deletion
-  //   })
-  //   .then((err) => {
-  //     console.log('did not delete event from db and gcal');
-  //   });
-  // }
 
   componentDidMount() {
     this.fetchAndUpdateEvents();

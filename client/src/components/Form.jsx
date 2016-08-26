@@ -177,6 +177,7 @@ class Form extends React.Component {
 
     // TO DO: Use geolocation to update timeZone automatically
 
+
     // Form validation to check for date and/or time in incorrect format
     if (!this.dateFormatValid(this.state.startDate) && !this.timeFormatValid(this.state.startTime)) {
       console.log('Error in both date and time format.');
@@ -242,16 +243,16 @@ class Form extends React.Component {
       }
 
 
-    let token = localStorage.getItem('token');
+      let token = localStorage.getItem('token');
 
     // Post event to Google Calendar API
-    fetch('http://localhost:9000/api/calendar/addEvent', {
-      method: 'POST',
-      body: JSON.stringify(event),
-      mode: 'cors-with-forced-preflight',
-      headers: {
-        'Content-Type': 'application/json',
-        'authorization': token
+      fetch('http://velocitydash.com/api/calendar/addEvent', {
+        method: 'POST',
+        body: JSON.stringify(event),
+        mode: 'cors-with-forced-preflight',
+        headers: {
+          'Content-Type': 'application/json',
+          'authorization': token
         }
       }).then((res) => {
         if (res.status === 200) { this.props.refreshEvents(); }
